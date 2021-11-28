@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestCircleCi3</string>
+    <string name="moon_earth">moon_earth</string>
+    <string name="welcome_mE">Welcome!</string>
+</resources>
