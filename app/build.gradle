@@ -33,7 +33,7 @@ android {
     flavorDimensions"default"
     productFlavors{
         dev{
-            applicationId 'com.example.testcircleci2.dev'
+            applicationId 'com.example.testcircleci3.dev'
             buildConfigField("String", "APP_MODE", "\"Dev\"")
         }
         beta{
