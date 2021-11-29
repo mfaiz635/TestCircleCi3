@@ -138,7 +138,7 @@ jobs:
       - *firebase_cli_install
       - run:
           name: Deploy latest Beta build to Firebase App Distribution
-          command: bundle exec fastlane distribute group:android beta
+          command: bundle exec fastlane distribute group:android_beta
 
 workflows:
   version: 2
