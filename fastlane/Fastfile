@@ -83,7 +83,7 @@ platform :android do
   #end
   
   desc "Submit a new Beta Build to Firebase App Distribution"
-  lane :beta do
+  lane :android_beta do
     build
 
     firebase_app_distribution(
