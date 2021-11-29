@@ -4,7 +4,7 @@ reference:
    
    # Docker Image Configs
     android_config: &android_config
-      working_directory: ~/TestCircleCI2
+      working_directory: ~/TestCircleCi3
       docker:
         - image: circleci/android:api-30
       environment:
