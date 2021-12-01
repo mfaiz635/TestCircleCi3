@@ -75,40 +75,29 @@ platform :android do
       success: false
       )
   end
-
-  #desc "Deploy latest Beta build to Crashlytics Beta"
-  #lane :beta do
-  #  gradle(task: "assembleRelease")
-  #  crashlytics
-  #end
   
-  #desc "Submit a new Beta Build to Firebase App Distribution"
-  #lane :android_beta do
-  #  build
-
-  #  firebase_app_distribution(
-  #     app: ENV['FIREBASE_APP_ID_ANDROID'],
-  #     groups: "TestCircleCi3",
-  #     release_notes: "This is beta version before release to Google Play Store"
-  #   )
-  #end
+  desc "Deploy latest Beta build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "assembleRelease")
+    crashlytics
+  end
   
-  # use like this `fastlane distribute group:only-me`
+  # use like this `fastlane distribute group:android-qa`
   desc "Deploy latest Beta build to Firebase App Distribution"
   lane :distribute do |options|
     if options[:group]
       build_android_app(
-        task: "assemble",
+       task: "assemble",
         flavor: "prod",
         build_type: "release"
       )
 
       firebase_app_distribution(
-          app: ENV['FIREBASE_APP_ID_ANDROID'],
-          groups: options[:group],
-          release_notes: "This is beta version before release to Google Play Store",
-          firebase_cli_path: "/usr/local/bin/firebase",
-          firebase_cli_token: ENV['FIREBASE_CI_TOKEN']
+        app: ENV['FIREBASE_APP_ID_ANDROID'],
+        groups: options[:group],
+        release_notes: "Fastlane Droid Release Notes Updated 1.0.1",
+        firebase_cli_path: "/usr/local/bin/firebase",
+        firebase_cli_token: ENV['FIREBASE_CI_TOKEN']
       )
     else
       UI.user_error!("Missing group name!")
